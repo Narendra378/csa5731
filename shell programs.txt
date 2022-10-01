@@ -1,0 +1,228 @@
+1.square of a number
+
+echo "enter a number:"
+read a
+sq=`expr "$a" \* "$a" `
+echo "the square of $a ="$sq
+
+2.leap year
+
+echo -n "Enter year (YYYY): "
+read y
+a = 'expr $y%4'
+b = 'expr $y%100'
+c = 'expr $y%400'
+if[$a -eq 0 -a $b -ne - -o $c -eq 0]
+then 
+echo "$y is leap year"
+else
+echo "$y is not a leap year"
+
+3.reverse a number
+
+echo enter n
+read n
+num=0
+while [ $n -gt 0 ]
+do
+num=$(expr $num \* 10)
+k=$(expr $n % 10)
+num=$(expr $num + $k)
+n=$(expr $n / 10)
+done
+echo number is $num
+
+4.factorial
+
+#!/bin/bash
+# Recursive factorial function
+
+factorial()
+{
+    product=$1
+           
+    # Defining a function to calculate factorial using recursion
+    if((product <= 2)); then
+        echo $product
+    else
+        f=$((product -1))
+        
+# Recursive call
+
+f=$(factorial $f)
+f=$((f*product))
+echo $f
+fi
+}
+
+# main program
+# reading the input from user
+echo "Enter the number:"   
+read num
+
+# defining a special case for 0! = 1
+if((num == 0)); then   
+echo 1
+else
+#calling the function
+factorial $num
+fi
+
+5.arthimetic operations
+
+#!/bin/sh
+
+a=10
+b=20
+
+val=`expr $a + $b`
+echo "a + b : $val"
+
+val=`expr $a - $b`
+echo "a - b : $val"
+
+val=`expr $a \* $b`
+echo "a * b : $val"
+
+val=`expr $b / $a`
+echo "b / a : $val"
+
+val=`expr $b % $a`
+echo "b % a : $val"
+
+if [ $a == $b ]
+then
+   echo "a is equal to b"
+fi
+
+if [ $a != $b ]
+then
+   echo "a is not equal to b"
+fi
+
+6.bigeest among given numbers
+
+echo "Enter Num1"
+read num1
+echo "Enter Num2"
+read num2
+echo "Enter Num3"
+read num3
+
+if [ $num1 -gt $num2 ] && [ $num1 -gt $num3 ]
+then
+    echo $num1
+elif [ $num2 -gt $num1 ] && [ $num2 -gt $num3 ]
+then
+    echo $num2
+else
+    echo $num3
+fi
+
+7.marks list
+
+echo \"Enter student name\"
+
+read name
+echo \"Enter semester\"
+read sem
+
+echo \"Enter subject 1 name \"
+read sub1
+echo \"Enter mark\"
+read mark1
+echo \"Enter subject 2 name \"
+read sub2
+ echo \"Enter mark\"
+read mark2
+echo \"Enter subject 3 name \"
+read sub3
+echo \"Enter mark\"
+read mark3
+
+echo \"Name : $name\"
+echo \"semester : $sem\"
+echo \"Subject   Marks\"
+echo \"$sub1   $mark1\"
+echo \"$sub2   $mark2\"
+echo \"$sub3   $mark3\"
+sum=`expr $mark1 + $mark2 + $mark3`
+echo the sum is $sum
+echo \"Sum of 3 subjects are: \" $sum
+per=`expr $sum / 3`
+echo \" Percentage: \" $per
+if [ $per -ge 75 ]
+then
+echo \"You get Distinction”
+elif [ $per -ge 60 ]
+then
+echo “You get First class”
+elif [ $per -ge  50 ]
+then
+echo \"You get Second class\"
+else
+     echo \"You get Fail\"
+fi
+
+8.odd position
+
+#!/bin/bash
+n=0
+while ! [[ $n =~ "^[-+]?[0-9]+$" ]]
+do
+    read -p "Enter a number : " n
+    l=${#n}
+    if [[ $n =~ ^[+-]?[0-9]+$ ]];then
+        if [[ $n =~ ^[+-] ]];then
+            i=2
+        if   
+        if [[ $n =~ ^[0-9] ]];then
+            i=1
+        if
+        while [ $i -le $l ]
+        do
+            d=$(echo $n | cut -c $i)
+            echo $d    
+            i=$(($i + 2)) 
+        done
+    break    
+    if
+done
+
+9.palindrome
+
+echo enter n
+read n
+num=0
+on=$n
+while [ $n -gt 0 ]
+do
+num=$(expr $num \* 10)
+k=$(expr $n % 10)
+num=$(expr $num + $k)
+n=$(expr $n / 10)
+done
+if [ $num -eq $on ]
+then
+echo palindrome
+else
+echo not palindrome
+fi
+
+10.quadratic
+
+#!/bin/bash
+read a
+read b
+read c
+
+d=$((b*b-4*a*c))
+
+if ((d>=0)); then
+    calc=$(echo "sqrt ($d)" | bc )
+    x1=$((-b/2*a+calc/2*a))
+    x2=$((-b/2*a-calc/2*a))
+    echo "$x1""$x2"
+else
+    echo "To trionimo den exei pragmatikes rizes"
+fi
